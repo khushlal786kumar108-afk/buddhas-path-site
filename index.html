@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Buddha's Path of Equality — A Journey Towards Peace, Wisdom &amp; Equality</title>
+<meta name="description" content="Buddha's Path of Equality — शांति, ज्ञान और समानता की यात्रा। A peaceful platform for wisdom, compassion and humanity.">
+<link rel="icon" href="/assets/images/logo.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast"></div>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="">
+  <div id="lightboxCap" class="lb-caption"></div>
+</div>
+
+<!-- ============================================================
+     OPENING INTRO (first thing every visitor sees)
+============================================================ -->
+<div class="intro" id="intro-opening" data-target="view-home" style="display:flex; background-image:url('/assets/images/opening-bg.jpeg');">
+  <div class="intro-inner">
+    <img class="logo-badge" src="/assets/images/logo.png" alt="Buddha's Path of Equality logo">
+    <div class="intro-eyebrow">Peace · Wisdom · Equality · Humanity</div>
+    <h1>🕊️ Buddha's Path of Equality ☸️</h1>
+    <div class="tagline">A Journey Towards Peace, Wisdom &amp; Equality</div>
+    <p class="intro-msg hi">"जहाँ ज्ञान से विचार जागें, करुणा से हृदय जुड़ें और समानता से समाज मजबूत बने।"</p>
+
+    <div class="opening-choices">
+      <button class="choice-card" onclick="closeIntro('intro-opening'); goTo('view-home','intro-home')">
+        <span class="ci">☸️</span><b>Explore the Journey</b><span>Enter the home experience</span>
+      </button>
+      <button class="choice-card" onclick="closeIntro('intro-opening'); goTo('view-register','intro-register')">
+        <span class="ci">📝</span><b>Join Our Community</b><span>Create your account</span>
+      </button>
+      <button class="choice-card" onclick="closeIntro('intro-opening'); goTo('view-login','intro-login')">
+        <span class="ci">🔐</span><b>Continue Your Journey</b><span>Sign in to your account</span>
+      </button>
+    </div>
+    <div class="foot-line">Peace begins with understanding. Equality begins with respect.</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     PER-PAGE INTROS (hidden until triggered)
+============================================================ -->
+
+<div class="intro" id="intro-home" style="background-image:url('/assets/images/home-intro.jpeg');">
+  <div class="intro-inner">
+    <div class="intro-eyebrow">Home</div>
+    <h1 class="hi">होम की यात्रा</h1>
+    <p class="intro-msg hi">"शांति की यात्रा भीतर से शुरू होती है, और समानता की यात्रा मानवता से।"</p>
+    <div class="intro-actions">
+      <button class="btn btn-primary" onclick="closeIntro('intro-home')">ENTER THE PATH ☸️</button>
+    </div>
+    <div class="skip" onclick="skipIntro('intro-home')">Skip Intro</div>
+  </div>
+</div>
+
+<div class="intro" id="intro-about" style="background-image:url('/assets/images/about-intro.jpeg');">
+  <div class="intro-inner">
+    <div class="intro-eyebrow">About Us</div>
+    <h1 class="hi">हमारी कहानी</h1>
+    <p class="intro-msg hi">एक मंच जो ज्ञान, करुणा और समानता को मानवता के साथ जोड़ता है।</p>
+    <div class="intro-actions"><button class="btn btn-primary" onclick="closeIntro('intro-about')">CONTINUE</button></div>
+    <div class="skip" onclick="skipIntro('intro-about')">Skip Intro</div>
+  </div>
+</div>
+
+<div class="intro" id="intro-wisdom" style="background-image:url('/assets/images/wisdom-card1.jpeg');">
+  <div class="intro-inner">
+    <div class="intro-eyebrow">Wisdom &amp; Knowledge</div>
+    <h1 class="hi">ज्ञान की यात्रा</h1>
+    <p class="intro-msg hi">"ज्ञान केवल पढ़ने की वस्तु नहीं, समझने और जीवन में अपनाने की यात्रा है।"</p>
+    <div class="intro-actions"><button class="btn btn-primary" onclick="closeIntro('intro-wisdom')">ENTER THE WISDOM</button></div>
+    <div class="skip" onclick="skipIntro('intro-wisdom')">Skip Intro</div>
+  </div>
+</div>
+
+<div class="intro" id="intro-articles" style="background-image:url('/assets/images/article1.jpeg');">
+  <div class="intro-inner">
+    <div class="intro-eyebrow">Articles</div>
+    <h1 class="hi">विचारों की एक झलक</h1>
+    <p class="intro-msg hi">शब्दों में समाए ज्ञान, करुणा और जीवन के अनुभव।</p>
+    <div class="intro-actions"><button class="btn btn-primary" onclick="closeIntro('intro-articles')">READ THE ARTICLES</button></div>
+    <div class="skip" onclick="skipIntro('intro-articles')">Skip Intro</div>
+  </div>
+</div>
+
+<div class="intro" id="intro-gallery" style="background-image:url('/assets/images/gallery-intro.jpeg');">
+  <div class="intro-inner">
+    <div class="intro-eyebrow">Gallery</div>
+    <h1 class="hi">शांति के दृश्य</h1>
+    <p class="intro-msg hi">"कुछ दृश्य शब्दों से अधिक शांति दे जाते हैं।"</p>
+    <div class="intro-actions"><button class="btn btn-primary" onclick="closeIntro('intro-gallery')">EXPLORE GALLERY</button></div>
+    <div class="skip" onclick="skipIntro('intro-gallery')">Skip Intro</div>
+  </div>
+</div>
+
+<div class="intro" id="intro-events" style="background-image:url('/assets/images/wisdom-card3.jpeg');">
+  <div class="intro-inner">
+    <div class="intro-eyebrow">Events</div>
+    <h1 class="hi">साथ मिलकर मनाया गया समय</h1>
+    <p class="intro-msg hi">सामूहिक ध्यान, संवाद और सीखने के आयोजन।</p>
+    <div class="intro-actions"><button class="btn btn-primary" onclick="closeIntro('intro-events')">VIEW EVENTS</button></div>
+    <div class="skip" onclick="skipIntro('intro-events')">Skip Intro</div>
+  </div>
+</div>
+
+<div class="intro" id="intro-contact" style="background-image:url('/assets/images/wisdom-card4.jpeg');">
+  <div class="intro-inner">
+    <div class="intro-eyebrow">Contact</div>
+    <h1 class="hi">हमसे जुड़ें</h1>
+    <p class="intro-msg hi">आपके प्रश्न और सुझाव हमारे लिए मूल्यवान हैं।</p>
+    <div class="intro-actions"><button class="btn btn-primary" onclick="closeIntro('intro-contact')">CONTINUE</button></div>
+    <div class="skip" onclick="skipIntro('intro-contact')">Skip Intro</div>
+  </div>
+</div>
+
+<div class="intro" id="intro-register" style="background-image:url('/assets/images/register-intro.jpeg');">
+  <div class="intro-inner">
+    <div class="intro-eyebrow">Registration</div>
+    <h1 class="hi">JOIN BUDDHA'S PATH OF EQUALITY</h1>
+    <p class="intro-msg hi">"हर नई यात्रा एक कदम से शुरू होती है।"</p>
+    <div class="intro-actions"><button class="btn btn-primary" onclick="closeIntro('intro-register')">CREATE MY ACCOUNT</button></div>
+    <div class="skip" onclick="skipIntro('intro-register')">Skip Intro</div>
+  </div>
+</div>
+
+<div class="intro" id="intro-login" style="background-image:url('/assets/images/login-intro.jpeg');">
+  <div class="intro-inner">
+    <div class="intro-eyebrow">Login</div>
+    <h1>Welcome Back</h1>
+    <p class="intro-msg">Your Journey Continues Here.</p>
+    <div class="intro-actions"><button class="btn btn-primary" onclick="closeIntro('intro-login')">CONTINUE TO LOGIN</button></div>
+    <div class="skip" onclick="skipIntro('intro-login')">Skip Intro</div>
+  </div>
+</div>
+
+<div class="intro" id="intro-dashboard" style="background-image:url('/assets/images/home-hero.jpeg');">
+  <div class="intro-inner">
+    <div class="intro-eyebrow">Your Space</div>
+    <h1 class="hi">आपकी व्यक्तिगत यात्रा</h1>
+    <p class="intro-msg hi">"यह आपकी व्यक्तिगत यात्रा की शुरुआत है।"</p>
+    <div class="intro-actions"><button class="btn btn-primary" onclick="closeIntro('intro-dashboard')">ENTER DASHBOARD</button></div>
+    <div class="skip" onclick="skipIntro('intro-dashboard')">Skip Intro</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<nav class="navbar">
+  <div class="container nav-inner">
+    <a class="brand" href="#" onclick="showView('view-home'); return false;">
+      <img src="/assets/images/logo.png" alt="Buddha's Path of Equality logo">
+      <span class="brand-text"><b>Buddha's Path of Equality</b><small>शांति · ज्ञान · समानता</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="#" data-view="view-home" onclick="showView('view-home'); return false;">🏠 Home</a>
+      <a href="#" data-view="view-about" onclick="goTo('view-about','intro-about'); return false;">☸️ About</a>
+      <a href="#" data-view="view-wisdom" onclick="goTo('view-wisdom','intro-wisdom'); return false;">📚 ज्ञान की बातें</a>
+      <a href="#" data-view="view-articles" onclick="goTo('view-articles','intro-articles'); return false;">📖 Articles</a>
+      <a href="#" data-view="view-gallery" onclick="goTo('view-gallery','intro-gallery'); return false;">🖼️ Gallery</a>
+      <a href="#" data-view="view-events" onclick="goTo('view-events','intro-events'); return false;">📅 Events</a>
+      <a href="#" data-view="view-contact" onclick="goTo('view-contact','intro-contact'); return false;">💬 Contact</a>
+    </div>
+    <div class="nav-actions">
+      <a class="btn btn-ghost" href="#" onclick="goTo('view-register','intro-register'); return false;">📝 Register</a>
+      <a class="btn btn-dark" href="#" onclick="goTo('view-login','intro-login'); return false;">🔐 Login</a>
+      <button class="burger" onclick="toggleMobileMenu()" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <div class="container">
+    <a href="#" onclick="showView('view-home'); return false;">🏠 Home</a>
+    <a href="#" onclick="goTo('view-about','intro-about'); return false;">☸️ About</a>
+    <a href="#" onclick="goTo('view-wisdom','intro-wisdom'); return false;">📚 ज्ञान की बातें</a>
+    <a href="#" onclick="goTo('view-articles','intro-articles'); return false;">📖 Articles</a>
+    <a href="#" onclick="goTo('view-gallery','intro-gallery'); return false;">🖼️ Gallery</a>
+    <a href="#" onclick="goTo('view-events','intro-events'); return false;">📅 Events</a>
+    <a href="#" onclick="goTo('view-contact','intro-contact'); return false;">💬 Contact</a>
+    <div class="mm-actions">
+      <a class="btn btn-ghost btn-block" href="#" onclick="goTo('view-register','intro-register'); return false;">📝 Register</a>
+      <a class="btn btn-dark btn-block" href="#" onclick="goTo('view-login','intro-login'); return false;">🔐 Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     HOME VIEW
+============================================================ -->
+<div class="view" id="view-home">
+
+  <header class="page-hero home-hero" style="background-image:url('/assets/images/home-hero.jpeg');">
+    <div class="container">
+      <img src="/assets/images/logo.png" alt="logo" style="width:64px;height:64px;border-radius:50%;border:2px solid var(--gold-soft);margin-bottom:22px;">
+      <div class="eyebrow">🕊️ Buddha's Path of Equality ☸️</div>
+      <h1 class="hi">ज्ञान से प्रकाश • करुणा से शांति • समानता से मानवता</h1>
+      <p class="lead">A peaceful, respectful platform for wisdom, compassion, humanity and equality — built for everyone who seeks a calmer, more equal world.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="goTo('view-wisdom','intro-wisdom')">Explore Wisdom</button>
+        <button class="btn btn-outline" onclick="goTo('view-about','intro-about')">हमारा उद्देश्य जानें</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MISSION -->
+  <section class="block">
+    <div class="container split">
+      <img src="/assets/images/mission.jpeg" alt="Buddha statue by a waterfall, representing peace and clarity">
+      <div>
+        <div class="eyebrow"><svg class="wheel" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#C6A15B" stroke-width="1.4"/><circle cx="12" cy="12" r="2" fill="#C6A15B"/><path d="M12 2V6M12 18V22M2 12H6M18 12H22M4.9 4.9L7.8 7.8M16.2 16.2L19.1 19.1M19.1 4.9L16.2 7.8M7.8 16.2L4.9 19.1" stroke="#C6A15B" stroke-width="1.2"/></svg>Our Mission</div>
+        <h2>ज्ञान, करुणा और समानता का मार्ग</h2>
+        <p class="mt-16">Buddha's Path of Equality एक शांतिपूर्ण मंच है जो ज्ञान, करुणा, शांति, सम्मान, मानवता और समानता को साझा करने के लिए बनाया गया है। हम मानते हैं कि सच्ची समानता समझ और सम्मान से शुरू होती है, और सच्ची शांति भीतर की जागरूकता से जन्म लेती है।</p>
+        <div class="values-row">
+          <div class="value-chip"><span class="vi">🕊️</span><b>Peace</b></div>
+          <div class="value-chip"><span class="vi">☸️</span><b>Wisdom</b></div>
+          <div class="value-chip"><span class="vi">⚖️</span><b>Equality</b></div>
+          <div class="value-chip"><span class="vi">🌱</span><b>Humanity</b></div>
+        </div>
+        <button class="btn btn-ghost mt-24" onclick="goTo('view-about','intro-about')">हमारे बारे में जानें →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- WISDOM CATEGORIES -->
+  <section class="block alt">
+    <div class="container">
+      <div class="block-head center">
+        <div class="eyebrow" style="justify-content:center;">ज्ञान की बातें</div>
+        <h2>चार मार्ग, एक यात्रा</h2>
+        <p>हर श्रेणी अपने भीतर एक अलग अनुभव और गहराई समेटे हुए है।</p>
+      </div>
+      <div class="grid-cards">
+        <div class="wcard" onclick="goTo('view-wisdom','intro-wisdom')">
+          <img src="/assets/images/wisdom-card1.jpeg" alt="Buddha meditating by a lotus pond">
+          <div class="wc-content"><span class="wc-icon">☸️</span><h3>Buddha की शिक्षाएँ</h3><span class="wc-link">Explore →</span></div>
+        </div>
+        <div class="wcard" onclick="goTo('view-wisdom','intro-wisdom')">
+          <img src="/assets/images/wisdom-card2.jpeg" alt="Sacred hands in a gesture of respect">
+          <div class="wc-content"><span class="wc-icon">🕊️</span><h3>शांति और करुणा</h3><span class="wc-link">Explore →</span></div>
+        </div>
+        <div class="wcard" onclick="goTo('view-wisdom','intro-wisdom')">
+          <img src="/assets/images/wisdom-card3.jpeg" alt="Monk walking mindfully along a river">
+          <div class="wc-content"><span class="wc-icon">⚖️</span><h3>समानता और मानवता</h3><span class="wc-link">Explore →</span></div>
+        </div>
+        <div class="wcard" onclick="goTo('view-wisdom','intro-wisdom')">
+          <img src="/assets/images/wisdom-card4.jpeg" alt="Rudraksha bracelet, a symbol of mindful living">
+          <div class="wc-content"><span class="wc-icon">🌱</span><h3>जीवन की प्रेरणा</h3><span class="wc-link">Explore →</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DAILY INSPIRATION -->
+  <section class="block">
+    <div class="container">
+      <div class="block-head">
+        <div class="eyebrow">☀️ आज का प्रेरणादायक विचार</div>
+      </div>
+      <div class="inspire-card" style="background-image:url('/assets/images/daily-inspiration.jpeg');">
+        <div class="inspire-body">
+          <span style="font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft);font-weight:700;">Thought for Today</span>
+          <p class="quote hi">"जो मन शांत है, वही सबसे बड़ी शक्ति है। समानता की शुरुआत हर व्यक्ति को समझने से होती है।"</p>
+          <div class="inspire-actions">
+            <button class="icon-btn" onclick="toggleSave(this)">💾 Save</button>
+            <button class="icon-btn" onclick="shareThought()">🔗 Share</button>
+            <button class="icon-btn" onclick="goTo('view-wisdom','intro-wisdom')">✨ More Thoughts</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST UPDATES -->
+  <section class="block alt">
+    <div class="container">
+      <div class="block-head"><div class="eyebrow">📰 Latest Updates</div><h2>ताज़ा जानकारी</h2></div>
+      <div class="updates-list">
+        <div class="update-row"><div class="update-tag">Article</div><div><h4>करुणा का अभ्यास — रोज़ के जीवन में</h4><span class="date">27 August 2026</span></div></div>
+        <div class="update-row"><div class="update-tag">Event</div><div><h4>सामूहिक ध्यान सत्र — इस माह के अंत में</h4><span class="date">24 August 2026</span></div></div>
+        <div class="update-row"><div class="update-tag">Wisdom</div><div><h4>समानता पर एक नया संग्रह जोड़ा गया</h4><span class="date">19 August 2026</span></div></div>
+        <div class="update-row"><div class="update-tag">Notice</div><div><h4>Gallery में नई तस्वीरें जोड़ी गईं</h4><span class="date">12 August 2026</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED ARTICLES -->
+  <section class="block">
+    <div class="container">
+      <div class="block-head"><div class="eyebrow">Featured Articles</div><h2>पढ़ने योग्य विचार</h2></div>
+      <div class="grid-cards">
+        <div class="acard">
+          <div class="ath"><img src="/assets/images/article1.jpeg" alt="A hand offering a garland in respect"></div>
+          <div class="abody"><span class="acat">समानता</span><h3>हर व्यक्ति के सम्मान की नींव</h3><p>समानता कोई नारा नहीं, एक दैनिक अभ्यास है — यह लेख बताता है कैसे।</p><a href="#" class="aread" onclick="goTo('view-articles','intro-articles'); return false;">Read More →</a></div>
+        </div>
+        <div class="acard">
+          <div class="ath"><img src="/assets/images/article2.jpeg" alt="Portrait representing knowledge and dedication"></div>
+          <div class="abody"><span class="acat">प्रेरणा</span><h3>ज्ञान की साधना, जीवन भर की यात्रा</h3><p>निरंतर सीखना ही सच्ची प्रगति की पहचान है।</p><a href="#" class="aread" onclick="goTo('view-articles','intro-articles'); return false;">Read More →</a></div>
+        </div>
+        <div class="acard">
+          <div class="ath"><img src="/assets/images/article3.jpeg" alt="A scholar writing thoughtfully at a desk"></div>
+          <div class="abody"><span class="acat">ज्ञान</span><h3>लेखनी से बदलाव की शुरुआत</h3><p>शब्दों में वह शक्ति है जो समाज की सोच बदल सकती है।</p><a href="#" class="aread" onclick="goTo('view-articles','intro-articles'); return false;">Read More →</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PREVIEW -->
+  <section class="block alt">
+    <div class="container">
+      <div class="block-head center"><div class="eyebrow" style="justify-content:center;">Gallery</div><h2>शांति के दृश्य</h2></div>
+      <div class="grid-cards" style="grid-template-columns:repeat(2,1fr);">
+        <div class="wcard" style="height:220px;" onclick="goTo('view-gallery','intro-gallery')"><img src="/assets/images/gallery1.jpeg" alt="Buddha statue in peaceful natural surroundings"></div>
+        <div class="wcard" style="height:220px;" onclick="goTo('view-gallery','intro-gallery')"><img src="/assets/images/gallery3.jpeg" alt="Portrait honouring a devoted scholar"></div>
+      </div>
+      <div class="text-center mt-32"><button class="btn btn-ghost" onclick="goTo('view-gallery','intro-gallery')">Explore the Gallery →</button></div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section class="block">
+    <div class="container">
+      <div class="block-head"><div class="eyebrow">📅 Events</div><h2>आगामी आयोजन</h2></div>
+      <div class="event-row">
+        <div class="event-date"><div class="d">14</div><div class="m">Sep</div></div>
+        <div class="event-info"><h4>सामूहिक ध्यान सत्र — Community Meditation</h4><div class="meta"><span>⏰ 6:00 AM</span><span>📍 Community Hall, Darbhanga</span></div></div>
+        <button class="btn btn-ghost" onclick="goTo('view-events','intro-events')">Details</button>
+      </div>
+      <div class="event-row">
+        <div class="event-date"><div class="d">28</div><div class="m">Sep</div></div>
+        <div class="event-info"><h4>समानता संवाद — Equality Dialogue</h4><div class="meta"><span>⏰ 4:00 PM</span><span>📍 Online / Virtual</span></div></div>
+        <button class="btn btn-ghost" onclick="goTo('view-events','intro-events')">Details</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEEDBACK -->
+  <section class="block alt">
+    <div class="container">
+      <div class="block-head center"><h2 class="hi">आपके विचार हमारे लिए महत्वपूर्ण हैं।</h2></div>
+      <div class="form-card" style="max-width:640px;margin:0 auto;">
+        <form onsubmit="submitFeedback(event)">
+          <div class="field">
+            <label for="fbMessage">Your feedback, suggestion or question</label>
+            <textarea id="fbMessage" rows="4" placeholder="अपने विचार यहाँ लिखें..."></textarea>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Send Feedback</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============================================================
+     ABOUT VIEW
+============================================================ -->
+<div class="view" id="view-about">
+  <header class="page-hero" style="background-image:url('/assets/images/about-intro.jpeg');">
+    <div class="container">
+      <div class="eyebrow">About Us</div>
+      <h1>हमारी कहानी, हमारा उद्देश्य</h1>
+      <p class="lead">Buddha's Path of Equality was created as a quiet space for wisdom, compassion, respect and equality — open to everyone, regardless of background.</p>
+    </div>
+  </header>
+  <section class="block">
+    <div class="container split">
+      <div>
+        <div class="eyebrow">Mission</div>
+        <h2>ज्ञान और करुणा को सबके लिए सुलभ बनाना</h2>
+        <p class="mt-16">हमारा उद्देश्य है — बुद्ध की शिक्षाओं, शांति के सिद्धांतों और समानता के मूल्यों को सरल, सम्मानजनक और सुलभ तरीके से सबके साथ साझा करना।</p>
+        <div class="divider"></div>
+        <div class="eyebrow">Vision</div>
+        <h2>एक ऐसा समाज जहाँ हर व्यक्ति का सम्मान हो</h2>
+        <p class="mt-16">हम एक ऐसी दुनिया की कल्पना करते हैं जहाँ ज्ञान से विचार जागें, करुणा से हृदय जुड़ें, और समानता से समाज मजबूत बने।</p>
+      </div>
+      <img src="/assets/images/wisdom-card3.jpeg" alt="A monk walking mindfully by a river at dawn">
+    </div>
+  </section>
+  <section class="block alt">
+    <div class="container">
+      <div class="block-head center"><div class="eyebrow" style="justify-content:center;">Core Values</div><h2>Peace · Wisdom · Equality · Humanity</h2></div>
+      <div class="values-row" style="grid-template-columns:repeat(2,1fr);">
+        <div class="value-chip"><span class="vi">🕊️</span><b>Peace</b><p class="mt-8" style="font-size:13px;">आंतरिक शांति ही स्थायी परिवर्तन की नींव है।</p></div>
+        <div class="value-chip"><span class="vi">☸️</span><b>Wisdom</b><p class="mt-8" style="font-size:13px;">ज्ञान से ही सही मार्ग की पहचान होती है।</p></div>
+        <div class="value-chip"><span class="vi">⚖️</span><b>Equality</b><p class="mt-8" style="font-size:13px;">हर व्यक्ति समान सम्मान का अधिकारी है।</p></div>
+        <div class="value-chip"><span class="vi">🌱</span><b>Humanity</b><p class="mt-8" style="font-size:13px;">करुणा और सेवा ही सच्ची मानवता है।</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     WISDOM VIEW
+============================================================ -->
+<div class="view" id="view-wisdom">
+  <header class="page-hero" style="background-image:url('/assets/images/wisdom-card1.jpeg');">
+    <div class="container">
+      <div class="eyebrow">ज्ञान की बातें</div>
+      <h1>Wisdom &amp; Knowledge</h1>
+      <p class="lead">बुद्ध की शिक्षाओं से लेकर जीवन की प्रेरणा तक — आठ श्रेणियों में बंटा हुआ एक पूरा ज्ञान संग्रह।</p>
+    </div>
+  </header>
+  <section class="block">
+    <div class="container">
+      <div class="grid-cards">
+        <div class="wcard"><img src="/assets/images/wisdom-card1.jpeg" alt="Buddha teachings"><div class="wc-content"><span class="wc-icon">☸️</span><h3>Buddha की शिक्षाएँ</h3><span class="wc-link">Explore →</span></div></div>
+        <div class="wcard"><img src="/assets/images/wisdom-card2.jpeg" alt="Peace and compassion"><div class="wc-content"><span class="wc-icon">🕊️</span><h3>शांति और करुणा</h3><span class="wc-link">Explore →</span></div></div>
+        <div class="wcard"><img src="/assets/images/wisdom-card3.jpeg" alt="Equality and humanity"><div class="wc-content"><span class="wc-icon">⚖️</span><h3>समानता और मानवता</h3><span class="wc-link">Explore →</span></div></div>
+        <div class="wcard"><img src="/assets/images/wisdom-card4.jpeg" alt="Life inspiration"><div class="wc-content"><span class="wc-icon">🌱</span><h3>जीवन के प्रेरणादायक विचार</h3><span class="wc-link">Explore →</span></div></div>
+        <div class="wcard"><img src="/assets/images/article1.jpeg" alt="Questions and answers"><div class="wc-content"><span class="wc-icon">❓</span><h3>प्रश्न और उत्तर</h3><span class="wc-link">Explore →</span></div></div>
+        <div class="wcard"><img src="/assets/images/article3.jpeg" alt="Special articles"><div class="wc-content"><span class="wc-icon">📝</span><h3>विशेष लेख</h3><span class="wc-link">Explore →</span></div></div>
+        <div class="wcard"><img src="/assets/images/daily-inspiration.jpeg" alt="Educational videos"><div class="wc-content"><span class="wc-icon">🎥</span><h3>Educational Videos</h3><span class="wc-link">Explore →</span></div></div>
+        <div class="wcard"><img src="/assets/images/mission.jpeg" alt="PDF and resources"><div class="wc-content"><span class="wc-icon">📄</span><h3>PDF &amp; Resources</h3><span class="wc-link">Explore →</span></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     ARTICLES VIEW
+============================================================ -->
+<div class="view" id="view-articles">
+  <header class="page-hero" style="background-image:url('/assets/images/article1.jpeg');">
+    <div class="container">
+      <div class="eyebrow">Articles</div>
+      <h1>विचारों की एक झलक</h1>
+      <p class="lead">करुणा, समानता, ज्ञान और जीवन के अनुभवों पर लिखे गए चुने हुए लेख।</p>
+    </div>
+  </header>
+  <section class="block">
+    <div class="container">
+      <div class="grid-cards">
+        <div class="acard"><div class="ath"><img src="/assets/images/article1.jpeg" alt="Equality article"></div><div class="abody"><span class="acat">समानता</span><h3>हर व्यक्ति के सम्मान की नींव</h3><p>समानता कोई नारा नहीं, एक दैनिक अभ्यास है।</p><a href="#" class="aread">Read More →</a></div></div>
+        <div class="acard"><div class="ath"><img src="/assets/images/article2.jpeg" alt="Inspiration article"></div><div class="abody"><span class="acat">प्रेरणा</span><h3>ज्ञान की साधना, जीवन भर की यात्रा</h3><p>निरंतर सीखना ही सच्ची प्रगति की पहचान है।</p><a href="#" class="aread">Read More →</a></div></div>
+        <div class="acard"><div class="ath"><img src="/assets/images/article3.jpeg" alt="Wisdom article"></div><div class="abody"><span class="acat">ज्ञान</span><h3>लेखनी से बदलाव की शुरुआत</h3><p>शब्दों में वह शक्ति है जो समाज की सोच बदल सकती है।</p><a href="#" class="aread">Read More →</a></div></div>
+        <div class="acard"><div class="ath"><img src="/assets/images/wisdom-card2.jpeg" alt="Compassion article"></div><div class="abody"><span class="acat">करुणा</span><h3>छोटे कर्मों में बड़ी करुणा</h3><p>रोज़मर्रा के छोटे कार्य भी करुणा का अभ्यास बन सकते हैं।</p><a href="#" class="aread">Read More →</a></div></div>
+        <div class="acard"><div class="ath"><img src="/assets/images/wisdom-card3.jpeg" alt="Peace article"></div><div class="abody"><span class="acat">शांति</span><h3>मौन में छिपी शक्ति</h3><p>मौन और ध्यान से मन को स्थिरता मिलती है।</p><a href="#" class="aread">Read More →</a></div></div>
+        <div class="acard"><div class="ath"><img src="/assets/images/daily-inspiration.jpeg" alt="Humanity article"></div><div class="abody"><span class="acat">मानवता</span><h3>मानवता की सच्ची पहचान</h3><p>दूसरों की सेवा में ही जीवन का असली अर्थ है।</p><a href="#" class="aread">Read More →</a></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     GALLERY VIEW
+============================================================ -->
+<div class="view" id="view-gallery">
+  <header class="page-hero" style="background-image:url('/assets/images/gallery-intro.jpeg');">
+    <div class="container">
+      <div class="eyebrow">Gallery</div>
+      <h1>शांति के दृश्य</h1>
+      <p class="lead">"कुछ दृश्य शब्दों से अधिक शांति दे जाते हैं।"</p>
+    </div>
+  </header>
+  <section class="block">
+    <div class="container">
+      <div class="gallery-tabs">
+        <button class="gtab active" onclick="filterGallery('all', this)">All</button>
+        <button class="gtab" onclick="filterGallery('nature', this)">🌿 Nature &amp; Peace</button>
+        <button class="gtab" onclick="filterGallery('buddha', this)">☸️ Buddha &amp; Wisdom</button>
+        <button class="gtab" onclick="filterGallery('knowledge', this)">📚 Knowledge</button>
+        <button class="gtab" onclick="filterGallery('inspiration', this)">🌸 Inspiration</button>
+        <button class="gtab" onclick="filterGallery('events', this)">📅 Events</button>
+      </div>
+      <div class="gallery-grid">
+        <div class="gitem" data-cat="buddha" onclick="openLightbox('assets/images/wisdom-card1.jpeg','Buddha की शिक्षाएँ')"><img src="/assets/images/wisdom-card1.jpeg" alt="Buddha meditating by a lotus pond"><div class="gcap">Buddha की शिक्षाएँ</div></div>
+        <div class="gitem" data-cat="nature" onclick="openLightbox('assets/images/mission.jpeg','शांति और जल')"><img src="/assets/images/mission.jpeg" alt="Buddha statue by a waterfall"><div class="gcap">शांति और जल</div></div>
+        <div class="gitem" data-cat="nature" onclick="openLightbox('assets/images/gallery1.jpeg','शांति और प्रकृति')"><img src="/assets/images/gallery1.jpeg" alt="Buddha statue in peaceful natural surroundings"><div class="gcap">शांति और प्रकृति</div></div>
+        <div class="gitem" data-cat="knowledge" onclick="openLightbox('assets/images/gallery3.jpeg','समर्पित विद्वान')"><img src="/assets/images/gallery3.jpeg" alt="Portrait honouring a devoted scholar"><div class="gcap">समर्पित विद्वान</div></div>
+        <div class="gitem" data-cat="nature" onclick="openLightbox('assets/images/wisdom-card3.jpeg','नदी किनारे भिक्षु')"><img src="/assets/images/wisdom-card3.jpeg" alt="Monk walking mindfully by a river"><div class="gcap">नदी किनारे भिक्षु</div></div>
+        <div class="gitem" data-cat="inspiration" onclick="openLightbox('assets/images/gallery4.jpeg','शांति की छाया')"><img src="/assets/images/gallery4.jpeg" alt="A peaceful shaded forest scene"><div class="gcap">शांति की छाया</div></div>
+        <div class="gitem" data-cat="buddha" onclick="openLightbox('assets/images/wisdom-card2.jpeg','सम्मान का भाव')"><img src="/assets/images/wisdom-card2.jpeg" alt="Hands in a gesture of respect"><div class="gcap">सम्मान का भाव</div></div>
+        <div class="gitem" data-cat="knowledge" onclick="openLightbox('assets/images/article3.jpeg','ज्ञान की साधना')"><img src="/assets/images/article3.jpeg" alt="A scholar writing thoughtfully"><div class="gcap">ज्ञान की साधना</div></div>
+        <div class="gitem" data-cat="events" onclick="openLightbox('assets/images/daily-inspiration.jpeg','सामूहिक आयोजन')"><img src="/assets/images/daily-inspiration.jpeg" alt="Community gathering setting"><div class="gcap">सामूहिक आयोजन</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     EVENTS VIEW
+============================================================ -->
+<div class="view" id="view-events">
+  <header class="page-hero" style="background-image:url('/assets/images/wisdom-card3.jpeg');">
+    <div class="container">
+      <div class="eyebrow">Events</div>
+      <h1>साथ मिलकर मनाया गया समय</h1>
+      <p class="lead">ध्यान सत्र, संवाद और सीखने के आयोजनों की जानकारी यहाँ पाएँ।</p>
+    </div>
+  </header>
+  <section class="block">
+    <div class="container">
+      <div class="block-head"><div class="eyebrow">Upcoming Events</div></div>
+      <div class="event-row">
+        <div class="event-date"><div class="d">14</div><div class="m">Sep</div></div>
+        <div class="event-info"><h4>सामूहिक ध्यान सत्र — Community Meditation</h4><div class="meta"><span>⏰ 6:00 AM – 7:30 AM</span><span>📍 Community Hall, Darbhanga</span></div></div>
+        <button class="btn btn-ghost">Details</button>
+      </div>
+      <div class="event-row">
+        <div class="event-date"><div class="d">28</div><div class="m">Sep</div></div>
+        <div class="event-info"><h4>समानता संवाद — Equality Dialogue</h4><div class="meta"><span>⏰ 4:00 PM – 6:00 PM</span><span>📍 Online / Virtual</span></div></div>
+        <button class="btn btn-ghost">Details</button>
+      </div>
+      <div class="event-row">
+        <div class="event-date"><div class="d">05</div><div class="m">Oct</div></div>
+        <div class="event-info"><h4>बुद्ध जयंती पूर्व सत्संग</h4><div class="meta"><span>⏰ 5:30 PM</span><span>📍 Buddha's Path Centre</span></div></div>
+        <button class="btn btn-ghost">Details</button>
+      </div>
+    </div>
+  </section>
+  <section class="block alt">
+    <div class="container">
+      <div class="block-head"><div class="eyebrow">Past Events</div></div>
+      <div class="event-row">
+        <div class="event-date" style="background:var(--paper); color:var(--navy);"><div class="d" style="color:var(--navy);">02</div><div class="m" style="color:var(--gold);">Aug</div></div>
+        <div class="event-info"><h4>करुणा कार्यशाला — Compassion Workshop</h4><div class="meta"><span>📍 Darbhanga</span></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     CONTACT VIEW
+============================================================ -->
+<div class="view" id="view-contact">
+  <header class="page-hero" style="background-image:url('/assets/images/wisdom-card4.jpeg');">
+    <div class="container">
+      <div class="eyebrow">Contact</div>
+      <h1>हमसे जुड़ें</h1>
+      <p class="lead">आपके प्रश्न, सुझाव और विचार हमारे लिए मूल्यवान हैं।</p>
+    </div>
+  </header>
+  <section class="block">
+    <div class="container split">
+      <div class="form-card">
+        <h3>Send a Message</h3>
+        <form id="contactForm" onsubmit="submitContact(event)" class="mt-24">
+          <div class="field"><label for="cName">Name</label><input id="cName" type="text" placeholder="आपका नाम"><span class="err-msg"></span></div>
+          <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" placeholder="you@example.com"><span class="err-msg"></span></div>
+          <div class="field"><label for="cSubject">Subject</label><input id="cSubject" type="text" placeholder="विषय"></div>
+          <div class="field"><label for="cMessage">Message</label><textarea id="cMessage" rows="4" placeholder="अपना संदेश लिखें..."></textarea><span class="err-msg"></span></div>
+          <button class="btn btn-primary btn-block" type="submit">Submit Message</button>
+        </form>
+        <div class="success-msg" id="contactSuccess" style="display:none;">✅ आपका संदेश सफलतापूर्वक भेज दिया गया — Thank you for reaching out.</div>
+      </div>
+      <div>
+        <h3>पता / Address</h3>
+        <p class="mt-16">Buddha's Path of Equality<br>Khush Lal Kumar • Darbhanga, Bihar</p>
+        <div class="divider"></div>
+        <h3>Administrator</h3>
+        <p class="mt-16">Khush Lal Kumar</p>
+        <div class="divider"></div>
+        <h3>Community Guidelines</h3>
+        <p class="mt-16">हम एक सम्मानजनक और शांतिपूर्ण संवाद को प्रोत्साहित करते हैं। कृपया विनम्रता और सम्मान के साथ संपर्क करें।</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     REGISTER VIEW
+============================================================ -->
+<div class="view" id="view-register">
+  <div class="auth-wrap">
+    <div class="auth-visual" style="background-image:url('/assets/images/register-intro.jpeg');">
+      <div class="av-inner">
+        <div class="eyebrow" style="color:var(--gold-soft);">Join the Community</div>
+        <h2 class="hi" style="color:var(--white);">हर नई यात्रा एक कदम से शुरू होती है</h2>
+        <p style="color:rgba(250,246,238,0.85); margin-top:12px;">Create your free account to save wisdom, join events, and track your journey.</p>
+      </div>
+    </div>
+    <div class="auth-form-side">
+      <div class="auth-box">
+        <a class="brand" href="#" onclick="showView('view-home'); return false;">
+          <img src="/assets/images/logo.png" alt="logo"><span class="brand-text"><b>Buddha's Path of Equality</b><small>Create My Account</small></span>
+        </a>
+
+        <div class="steps" id="regSteps">
+          <div class="step active"><div class="dot">1</div><div class="label">Welcome</div></div>
+          <div class="step-line"></div>
+          <div class="step"><div class="dot">2</div><div class="label">Your Details</div></div>
+          <div class="step-line"></div>
+          <div class="step"><div class="dot">3</div><div class="label">Verify</div></div>
+          <div class="step-line"></div>
+          <div class="step"><div class="dot">4</div><div class="label">Complete</div></div>
+        </div>
+
+        <!-- Step 1: Welcome -->
+        <div class="step-panel active reg-step-panel" id="regStep1">
+          <h3>स्वागत है 🙏</h3>
+          <p class="mt-16">Buddha's Path of Equality परिवार में शामिल होने के लिए बस एक छोटा फ़ॉर्म भरें। आपकी जानकारी सुरक्षित रखी जाएगी।</p>
+          <button class="btn btn-primary btn-block mt-32" onclick="regGoStep(2)">Get Started</button>
+          <p class="form-note text-center mt-16">Already have an account? <a href="#" style="color:var(--gold); font-weight:600;" onclick="goTo('view-login','intro-login'); return false;">Sign in</a></p>
+        </div>
+
+        <!-- Step 2: Details -->
+        <div class="step-panel reg-step-panel" id="regStep2">
+          <h3>Your Details</h3>
+          <div id="regServerError" class="field error" style="display:none;"><span class="err-msg" style="display:block;"></span></div>
+          <form id="registerForm" onsubmit="submitRegistration(event)" class="mt-24">
+            <div class="field"><label for="regName">Full Name</label><input id="regName" type="text" placeholder="Your full name" autocomplete="name"><span class="err-msg"></span></div>
+            <div class="field"><label for="regEmail">Email Address</label><input id="regEmail" type="email" placeholder="you@example.com" autocomplete="email"><span class="err-msg"></span></div>
+            <div class="field"><label for="regMobile">Mobile Number</label><input id="regMobile" type="tel" placeholder="+91 XXXXX XXXXX" autocomplete="tel"><span class="err-msg"></span></div>
+            <div class="field">
+              <label for="regPassword">Password</label>
+              <div class="pw-wrap"><input id="regPassword" type="password" placeholder="Create a password" oninput="onRegPasswordInput()" autocomplete="new-password"><button type="button" class="pw-toggle" onclick="togglePw('regPassword', this)">👁️</button></div>
+              <div style="height:4px;background:var(--line);border-radius:2px;margin-top:6px;overflow:hidden;"><div id="pwStrengthBar" style="height:100%;width:0%;transition:.3s;"></div></div>
+              <span id="pwStrengthLabel" style="font-size:12px;color:#8b93a0;"></span>
+              <span class="err-msg"></span>
+            </div>
+            <div class="field">
+              <label for="regConfirmPassword">Confirm Password</label>
+              <div class="pw-wrap"><input id="regConfirmPassword" type="password" placeholder="Re-enter your password" autocomplete="new-password"><button type="button" class="pw-toggle" onclick="togglePw('regConfirmPassword', this)">👁️</button></div>
+              <span class="err-msg"></span>
+            </div>
+            <label class="checkbox-row"><input type="checkbox" id="regTerms"><span>मैं <a href="#" onclick="goTo('view-terms',''); return false;" style="color:var(--gold);">Terms &amp; Conditions</a> और <a href="#" onclick="goTo('view-privacy',''); return false;" style="color:var(--gold);">Privacy Policy</a> से सहमत हूँ।</span></label>
+            <button class="btn btn-primary btn-block mt-24" type="submit" id="regSubmitBtn">CREATE MY ACCOUNT</button>
+          </form>
+          <button class="btn btn-ghost btn-block mt-16" onclick="regGoStep(1)">← Back</button>
+        </div>
+
+        <!-- Step 3: OTP Verification -->
+        <div class="step-panel reg-step-panel" id="regStep3">
+          <h3>Verify Your Account</h3>
+          <p class="mt-16">हमने एक कोड <b id="otpMaskedEmail">—</b> पर और एक कोड <b id="otpMaskedMobile">—</b> पर भेजा है। कृपया दोनों कोड दर्ज करें।</p>
+          <div id="otpServerError" class="field error" style="display:none;margin-top:16px;"><span class="err-msg" style="display:block;"></span></div>
+          <form id="otpForm" onsubmit="submitOtpVerification(event)" class="mt-24">
+            <div class="field">
+              <label for="otpEmailCode">Email OTP <span class="backend-flag" id="emailOtpFlag" style="display:none;">check server console (dev)</span></label>
+              <input id="otpEmailCode" type="text" inputmode="numeric" maxlength="6" placeholder="6-digit code"><span class="err-msg"></span>
+              <button type="button" class="btn btn-ghost mt-8" id="resendEmailBtn" onclick="resendOtp('email')" style="padding:8px 16px;font-size:12.5px;">Resend Email Code</button>
+            </div>
+            <div class="field mt-16">
+              <label for="otpSmsCode">Mobile OTP <span class="backend-flag" id="smsOtpFlag" style="display:none;">check server console (dev)</span></label>
+              <input id="otpSmsCode" type="text" inputmode="numeric" maxlength="6" placeholder="6-digit code"><span class="err-msg"></span>
+              <button type="button" class="btn btn-ghost mt-8" id="resendSmsBtn" onclick="resendOtp('sms')" style="padding:8px 16px;font-size:12.5px;">Resend Mobile Code</button>
+            </div>
+            <button class="btn btn-primary btn-block mt-24" type="submit">Verify &amp; Continue</button>
+          </form>
+          <button class="btn btn-ghost btn-block mt-16" onclick="regGoStep(2)">← Back</button>
+        </div>
+
+        <!-- Step 4: Success -->
+        <div class="step-panel reg-step-panel" id="regStep4">
+          <div class="text-center">
+            <div style="font-size:44px;">🎉</div>
+            <h3 class="hi mt-16">आपका Registration सफलतापूर्वक पूरा हो गया!</h3>
+            <p class="mt-16 hi">🕊️ Buddha's Path of Equality परिवार में आपका स्वागत है।</p>
+          </div>
+          <div class="form-card mt-32" style="background:var(--paper);">
+            <div class="summary-row"><span class="muted">Name</span><b id="successName">—</b></div>
+            <div class="summary-row"><span class="muted">Email</span><b id="successEmail">—</b></div>
+            <div class="summary-row"><span class="muted">Registration ID</span><b id="successRegId">—</b></div>
+            <div class="summary-row"><span class="muted">Date</span><b id="successDate">—</b></div>
+          </div>
+          <button class="btn btn-outline btn-block mt-24" style="color:var(--navy);border-color:var(--navy);" onclick="downloadRegistrationSlip()">📄 Download Registration PDF</button>
+          <button class="btn btn-primary btn-block mt-16" onclick="goTo('view-dashboard','intro-dashboard')">👤 Go to My Dashboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     LOGIN VIEW
+============================================================ -->
+<div class="view" id="view-login">
+  <div class="auth-wrap">
+    <div class="auth-visual" style="background-image:url('/assets/images/login-intro.jpeg');">
+      <div class="av-inner">
+        <div class="eyebrow" style="color:var(--gold-soft);">Welcome Back</div>
+        <h2 style="color:var(--white);">Your Journey Continues Here</h2>
+        <p style="color:rgba(250,246,238,0.85); margin-top:12px;">Sign in to access your saved wisdom, dashboard and updates.</p>
+      </div>
+    </div>
+    <div class="auth-form-side">
+      <div class="auth-box">
+        <a class="brand" href="#" onclick="showView('view-home'); return false;">
+          <img src="/assets/images/logo.png" alt="logo"><span class="brand-text"><b>Buddha's Path of Equality</b><small>Sign In</small></span>
+        </a>
+        <h3 class="mt-24">Secure Login</h3>
+        <form id="loginForm" onsubmit="submitLogin(event)" class="mt-24">
+          <div class="field"><label for="loginId">Email or Mobile</label><input id="loginId" type="text" placeholder="you@example.com" autocomplete="username"><span class="err-msg"></span></div>
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <div class="pw-wrap"><input id="loginPassword" type="password" placeholder="Your password" autocomplete="current-password"><button type="button" class="pw-toggle" onclick="togglePw('loginPassword', this)">👁️</button></div>
+            <span class="err-msg"></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin:6px 0 18px;">
+            <label class="checkbox-row" style="align-items:center;"><input type="checkbox" id="loginRemember"><span>Remember Me</span></label>
+            <a href="#" style="font-size:13px;color:var(--gold);font-weight:600;" onclick="showView('view-forgot'); return false;">Forgot Password?</a>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Secure Login</button>
+        </form>
+        <p class="form-note text-center mt-24">New here? <a href="#" style="color:var(--gold); font-weight:600;" onclick="goTo('view-register','intro-register'); return false;">Create an account</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FORGOT PASSWORD VIEW
+============================================================ -->
+<div class="view" id="view-forgot">
+  <div class="auth-wrap" style="grid-template-columns:1fr;">
+    <div class="auth-form-side">
+      <div class="auth-box">
+        <a class="brand" href="#" onclick="showView('view-home'); return false;">
+          <img src="/assets/images/logo.png" alt="logo"><span class="brand-text"><b>Buddha's Path of Equality</b><small>Reset Password</small></span>
+        </a>
+        <h3 class="mt-24">Password Recovery</h3>
+        <p class="mt-8">Enter your registered email — if an account exists, we'll send reset instructions.</p>
+        <form id="forgotForm" onsubmit="submitForgot(event)" class="mt-24">
+          <div class="field"><label for="forgotEmail">Email Address</label><input id="forgotEmail" type="email" placeholder="you@example.com"></div>
+          <button class="btn btn-primary btn-block" type="submit">Send Reset Link</button>
+        </form>
+        <div class="success-msg" id="forgotSuccess" style="display:none;">✅ यदि यह ईमेल पंजीकृत है, तो रीसेट निर्देश भेज दिए गए हैं।</div>
+        <button class="btn btn-ghost btn-block mt-16" onclick="showView('view-login')">← Return to Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     RESET PASSWORD VIEW (reached via emailed link ?token=...)
+============================================================ -->
+<div class="view" id="view-reset-password">
+  <div class="auth-wrap" style="grid-template-columns:1fr;">
+    <div class="auth-form-side">
+      <div class="auth-box">
+        <a class="brand" href="#" onclick="showView('view-home'); return false;">
+          <img src="/assets/images/logo.png" alt="logo"><span class="brand-text"><b>Buddha's Path of Equality</b><small>Set a New Password</small></span>
+        </a>
+        <h3 class="mt-24">Set a New Password</h3>
+        <p class="mt-8">Choose a new password for your account.</p>
+        <form id="resetForm" onsubmit="submitResetPassword(event)" class="mt-24">
+          <div class="field">
+            <label for="resetPassword">New Password</label>
+            <div class="pw-wrap"><input id="resetPassword" type="password" placeholder="New password"><button type="button" class="pw-toggle" onclick="togglePw('resetPassword', this)">👁️</button></div>
+            <span class="err-msg"></span>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Update Password</button>
+        </form>
+        <div class="success-msg" id="resetSuccess" style="display:none;">✅ Password updated — you can now log in.</div>
+        <button class="btn btn-ghost btn-block mt-16" onclick="showView('view-login')">← Return to Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     DASHBOARD VIEW
+============================================================ -->
+<div class="view" id="view-dashboard">
+  <header class="page-hero" style="min-height:32vh; background-image:url('/assets/images/home-hero.jpeg');">
+    <div class="container">
+      <div class="eyebrow">Your Space</div>
+      <h1>नमस्ते, <span class="user-name-slot">Friend</span> 🙏</h1>
+      <p class="lead">यह आपकी व्यक्तिगत यात्रा की शुरुआत है।</p>
+    </div>
+  </header>
+  <section class="block">
+    <div class="container dash-wrap">
+      <aside class="dash-side">
+        <a class="dash-link active">👋 Welcome</a>
+        <a class="dash-link">👤 My Profile</a>
+        <a class="dash-link">📚 Continue Learning</a>
+        <a class="dash-link">❤️ Saved Content</a>
+        <a class="dash-link">🔔 Notifications</a>
+        <a class="dash-link">📰 Latest Updates</a>
+        <a class="dash-link">📄 My Documents</a>
+        <a class="dash-link">⚙️ Account Settings</a>
+        <a class="dash-link" onclick="logout()" style="color:#C0503E;">🚪 Logout</a>
+      </aside>
+      <div>
+        <div class="dash-grid">
+          <div class="dash-card stat"><div class="si">❤️</div><div><b id="dashSavedCount">—</b><span>Saved thoughts</span></div></div>
+          <div class="dash-card stat"><div class="si">🔔</div><div><b id="dashNotifCount">—</b><span>New notifications</span></div></div>
+        </div>
+
+        <div class="dash-card mt-24">
+          <h3>👤 My Profile</h3>
+          <div class="divider"></div>
+          <div class="summary-row"><span class="muted">Name</span><b class="user-name-slot">Friend</b></div>
+          <div class="summary-row"><span class="muted">Email</span><b class="user-email-slot">—</b></div>
+          <div class="summary-row"><span class="muted">Registration ID</span><b class="user-regid-slot">—</b></div>
+        </div>
+
+        <div class="dash-card mt-24">
+          <h3>📄 My Documents</h3>
+          <div id="dashDocsList" class="mt-16"><p class="muted">Loading...</p></div>
+        </div>
+
+        <div class="dash-card mt-24">
+          <h3>🔔 Notifications</h3>
+          <div class="updates-list" id="dashNotifList" style="border-top:none;"><p class="muted">Loading...</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Helper target id used by nav functions (dashboard has no separate intro-target page) -->
+<script>document.addEventListener('DOMContentLoaded', ()=>{ /* alias */ });</script>
+
+<!-- ============================================================
+     LEGAL VIEWS
+============================================================ -->
+<div class="view" id="view-privacy">
+  <header class="page-hero" style="min-height:34vh; background-image:url('/assets/images/wisdom-card4.jpeg');"><div class="container"><div class="eyebrow">Legal</div><h1>Privacy Policy</h1></div></header>
+  <section class="block"><div class="container" style="max-width:760px;">
+    <p>Buddha's Path of Equality collects only the information necessary to provide the service: your name, email, and optional mobile number at registration. We never store your password in plain text, never expose secret keys in the frontend, and never share your data with third parties without consent.</p>
+    <p class="mt-16">You may request access to, correction of, or deletion of your data at any time by contacting us through the Contact page.</p>
+  </div></section>
+</div>
+<div class="view" id="view-terms">
+  <header class="page-hero" style="min-height:34vh; background-image:url('/assets/images/wisdom-card4.jpeg');"><div class="container"><div class="eyebrow">Legal</div><h1>Terms &amp; Conditions</h1></div></header>
+  <section class="block"><div class="container" style="max-width:760px;">
+    <p>By creating an account on Buddha's Path of Equality, you agree to use the platform respectfully, in line with our Community Guidelines, and not to misuse, scrape, or attack the service.</p>
+  </div></section>
+</div>
+<div class="view" id="view-guidelines">
+  <header class="page-hero" style="min-height:34vh; background-image:url('/assets/images/wisdom-card4.jpeg');"><div class="container"><div class="eyebrow">Legal</div><h1>Community Guidelines</h1></div></header>
+  <section class="block"><div class="container" style="max-width:760px;">
+    <p>This is a space for peace, wisdom and equality. Treat every member with respect, avoid hate speech or discrimination, and keep discussions constructive and kind.</p>
+  </div></section>
+</div>
+
+<!-- ============================================================
+     ADMIN LOGIN VIEW
+============================================================ -->
+<div class="view" id="view-admin-login">
+  <div class="auth-wrap" style="grid-template-columns:1fr;">
+    <div class="auth-form-side" style="background:var(--navy);">
+      <div class="auth-box">
+        <a class="brand" href="#" onclick="showView('view-home'); return false;">
+          <img src="/assets/images/logo.png" alt="logo"><span class="brand-text"><b style="color:var(--white);">Buddha's Path of Equality</b><small style="color:var(--gold-soft);">Admin Access</small></span>
+        </a>
+        <h3 class="mt-24" style="color:var(--white);">Admin Sign In</h3>
+        <p class="mt-8" style="color:rgba(250,246,238,0.7);">Restricted to authorised administrators only.</p>
+        <form id="adminLoginForm" onsubmit="submitAdminLogin(event)" class="mt-24">
+          <div class="field">
+            <label for="adminEmail" style="color:var(--gold-soft);">Admin Email</label>
+            <input id="adminEmail" type="email" placeholder="admin@buddhaspathofequality.org" value="admin@buddhaspathofequality.org">
+            <span class="err-msg"></span>
+          </div>
+          <div class="field">
+            <label for="adminPassword" style="color:var(--gold-soft);">Admin Password</label>
+            <div class="pw-wrap"><input id="adminPassword" type="password" placeholder="Enter admin password"><button type="button" class="pw-toggle" onclick="togglePw('adminPassword', this)">👁️</button></div>
+            <span class="err-msg"></span>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Enter Admin Panel</button>
+        </form>
+        <p class="form-note mt-16" style="color:rgba(250,246,238,0.55);">🔒 Uses the same authenticated API as user login — access is granted only to accounts with the ADMIN role, checked server-side.</p>
+        <button class="btn btn-outline btn-block mt-16" onclick="showView('view-home')">← Back to Site</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     ADMIN PANEL VIEW
+============================================================ -->
+<div class="view" id="view-admin">
+  <header class="page-hero" style="min-height:26vh; background-image:url('/assets/images/mission.jpeg');">
+    <div class="container">
+      <div class="eyebrow">Admin Panel <span class="backend-flag">demo data — resets on refresh</span></div>
+      <h1>स्वागत है, Khush Lal Kumar</h1>
+      <p class="lead">Manage articles, gallery, events, announcements, users and feedback from one place.</p>
+    </div>
+  </header>
+
+  <section class="block">
+    <div class="container dash-wrap">
+      <aside class="dash-side">
+        <a class="dash-link admin-tab-link active" data-tab="admin-overview" onclick="adminShowTab('admin-overview', this)">📊 Overview</a>
+        <a class="dash-link admin-tab-link" data-tab="admin-articles" onclick="adminShowTab('admin-articles', this)">📝 Articles</a>
+        <a class="dash-link admin-tab-link" data-tab="admin-inspiration" onclick="adminShowTab('admin-inspiration', this)">☀️ Daily Inspiration</a>
+        <a class="dash-link admin-tab-link" data-tab="admin-gallery" onclick="adminShowTab('admin-gallery', this)">🖼️ Gallery Images</a>
+        <a class="dash-link admin-tab-link" data-tab="admin-events" onclick="adminShowTab('admin-events', this)">📅 Events</a>
+        <a class="dash-link admin-tab-link" data-tab="admin-announcements" onclick="adminShowTab('admin-announcements', this)">📰 Announcements</a>
+        <a class="dash-link admin-tab-link" data-tab="admin-users" onclick="adminShowTab('admin-users', this)">👥 Users</a>
+        <a class="dash-link admin-tab-link" data-tab="admin-feedback" onclick="adminShowTab('admin-feedback', this)">💬 Feedback &amp; Messages</a>
+        <a class="dash-link" onclick="showView('view-home')" style="color:#C0503E;">🚪 Exit Admin</a>
+      </aside>
+
+      <div>
+        <!-- OVERVIEW -->
+        <div class="admin-tab-panel" id="admin-overview">
+          <div class="dash-grid">
+            <div class="dash-card stat"><div class="si">📝</div><div><b id="statArticles">—</b><span>Published articles</span></div></div>
+            <div class="dash-card stat"><div class="si">🖼️</div><div><b id="statGallery">—</b><span>Gallery images</span></div></div>
+            <div class="dash-card stat"><div class="si">📅</div><div><b id="statEvents">—</b><span>Upcoming events</span></div></div>
+            <div class="dash-card stat"><div class="si">👥</div><div><b id="statUsers">—</b><span>Registered users</span></div></div>
+            <div class="dash-card stat"><div class="si">💬</div><div><b id="statFeedback">—</b><span>Feedback messages</span></div></div>
+            <div class="dash-card stat"><div class="si">📰</div><div><b id="statAnnouncements">—</b><span>Active announcements</span></div></div>
+          </div>
+          <div class="dash-card mt-24">
+            <h3>Quick Notes</h3>
+            <p class="mt-8">This panel edits data held in memory for this browser session only, so you can try every workflow safely. Connecting it to a real database turns every action below into a permanent change — see the README for the exact backend pieces needed.</p>
+          </div>
+        </div>
+
+        <!-- ARTICLES -->
+        <div class="admin-tab-panel" id="admin-articles" style="display:none;">
+          <div class="dash-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+              <h3>📝 Articles</h3>
+              <button class="btn btn-primary" onclick="adminOpenForm('article')">+ Add Article</button>
+            </div>
+            <div id="adminArticleForm" class="mt-24" style="display:none;">
+              <div class="field"><label>Title</label><input id="af_title" type="text" placeholder="Article title"></div>
+              <div class="field"><label>Category</label><input id="af_cat" type="text" placeholder="e.g. समानता"></div>
+              <div class="field"><label>Short Description</label><textarea id="af_desc" rows="2" placeholder="Short description"></textarea></div>
+              <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" onclick="adminSaveArticle()">Save</button>
+                <button class="btn btn-ghost" onclick="adminCloseForm('article')">Cancel</button>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div id="adminArticleList"></div>
+          </div>
+        </div>
+
+        <!-- DAILY INSPIRATION -->
+        <div class="admin-tab-panel" id="admin-inspiration" style="display:none;">
+          <div class="dash-card">
+            <h3>☀️ Daily Inspiration</h3>
+            <p class="mt-8">Set the thought shown on the homepage today.</p>
+            <div class="field mt-16"><label>Today's Thought</label><textarea id="ai_thought" rows="3"></textarea></div>
+            <button class="btn btn-primary" onclick="adminSaveInspiration()">Publish Thought</button>
+          </div>
+        </div>
+
+        <!-- GALLERY -->
+        <div class="admin-tab-panel" id="admin-gallery" style="display:none;">
+          <div class="dash-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+              <h3>🖼️ Gallery Images</h3>
+              <button class="btn btn-primary" onclick="adminOpenForm('gallery')">+ Add Image</button>
+            </div>
+            <div id="adminGalleryForm" class="mt-24" style="display:none;">
+              <div class="field"><label>Caption</label><input id="gf_caption" type="text" placeholder="Image caption"></div>
+              <div class="field"><label>Category</label>
+                <select id="gf_cat"><option value="nature">🌿 Nature &amp; Peace</option><option value="buddha">☸️ Buddha &amp; Wisdom</option><option value="knowledge">📚 Knowledge</option><option value="inspiration">🌸 Inspiration</option><option value="events">📅 Events</option></select>
+              </div>
+              <p class="form-note">Image upload requires backend file storage (S3/Cloudinary) <span class="backend-flag">needs backend</span> — this demo adds a placeholder entry.</p>
+              <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" onclick="adminSaveGallery()">Save</button>
+                <button class="btn btn-ghost" onclick="adminCloseForm('gallery')">Cancel</button>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div id="adminGalleryList"></div>
+          </div>
+        </div>
+
+        <!-- EVENTS -->
+        <div class="admin-tab-panel" id="admin-events" style="display:none;">
+          <div class="dash-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+              <h3>📅 Events</h3>
+              <button class="btn btn-primary" onclick="adminOpenForm('event')">+ Add Event</button>
+            </div>
+            <div id="adminEventForm" class="mt-24" style="display:none;">
+              <div class="field"><label>Event Name</label><input id="ef_name" type="text"></div>
+              <div class="field"><label>Date</label><input id="ef_date" type="date"></div>
+              <div class="field"><label>Time</label><input id="ef_time" type="text" placeholder="e.g. 6:00 AM"></div>
+              <div class="field"><label>Location</label><input id="ef_loc" type="text"></div>
+              <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" onclick="adminSaveEvent()">Save</button>
+                <button class="btn btn-ghost" onclick="adminCloseForm('event')">Cancel</button>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div id="adminEventList"></div>
+          </div>
+        </div>
+
+        <!-- ANNOUNCEMENTS -->
+        <div class="admin-tab-panel" id="admin-announcements" style="display:none;">
+          <div class="dash-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
+              <h3>📰 Announcements</h3>
+              <button class="btn btn-primary" onclick="adminOpenForm('announcement')">+ Add Announcement</button>
+            </div>
+            <div id="adminAnnouncementForm" class="mt-24" style="display:none;">
+              <div class="field"><label>Message</label><textarea id="an_msg" rows="2"></textarea></div>
+              <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" onclick="adminSaveAnnouncement()">Publish</button>
+                <button class="btn btn-ghost" onclick="adminCloseForm('announcement')">Cancel</button>
+              </div>
+            </div>
+            <div class="divider"></div>
+            <div id="adminAnnouncementList"></div>
+          </div>
+        </div>
+
+        <!-- USERS -->
+        <div class="admin-tab-panel" id="admin-users" style="display:none;">
+          <div class="dash-card">
+            <h3>👥 Users</h3>
+            <p class="mt-8 muted">Live data from the database. You can enable or disable an account below — disabling immediately revokes that user's active sessions.</p>
+            <div class="field mt-16" style="max-width:320px;"><input type="text" id="adminUserSearch" placeholder="Search name, email, mobile, or ID..." oninput="adminSearchUsersDebounced()"></div>
+            <div class="divider"></div>
+            <div id="adminUserList"></div>
+          </div>
+        </div>
+
+        <!-- FEEDBACK -->
+        <div class="admin-tab-panel" id="admin-feedback" style="display:none;">
+          <div class="dash-card">
+            <h3>💬 Feedback &amp; Contact Messages</h3>
+            <p class="mt-8 muted">Messages submitted through the site's Contact and Feedback forms appear here for this session.</p>
+            <div class="divider"></div>
+            <div id="adminFeedbackList"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============================================================
+     FOOTER (shared across all views)
+============================================================ -->
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="#" onclick="showView('view-home'); return false;">
+          <img src="/assets/images/logo.png" alt="logo"><span class="brand-text"><b>🕊️ Buddha's Path of Equality ☸️</b></span>
+        </a>
+        <p class="mt-16" style="color:rgba(250,246,238,0.72);">A Journey Towards Peace, Wisdom &amp; Equality. Peace begins with understanding. Equality begins with respect.</p>
+      </div>
+      <div>
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="#" onclick="showView('view-home'); return false;">Home</a></li>
+          <li><a href="#" onclick="goTo('view-about','intro-about'); return false;">About</a></li>
+          <li><a href="#" onclick="goTo('view-wisdom','intro-wisdom'); return false;">ज्ञान की बातें</a></li>
+          <li><a href="#" onclick="goTo('view-articles','intro-articles'); return false;">Articles</a></li>
+          <li><a href="#" onclick="goTo('view-gallery','intro-gallery'); return false;">Gallery</a></li>
+          <li><a href="#" onclick="goTo('view-events','intro-events'); return false;">Events</a></li>
+          <li><a href="#" onclick="goTo('view-contact','intro-contact'); return false;">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="#" onclick="showView('view-privacy'); return false;">Privacy Policy</a></li>
+          <li><a href="#" onclick="showView('view-terms'); return false;">Terms &amp; Conditions</a></li>
+          <li><a href="#" onclick="showView('view-guidelines'); return false;">Community Guidelines</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Administration</h5>
+        <ul>
+          <li>Admin: Khush Lal Kumar</li>
+          <li>Darbhanga, Bihar</li>
+          <li><a href="#" onclick="showView('view-admin-login'); return false;">🛠️ Admin Panel Login</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Buddha's Path of Equality. All rights reserved.</span>
+      <span>Made with peace, wisdom &amp; equality 🕊️☸️⚖️</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/config.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
