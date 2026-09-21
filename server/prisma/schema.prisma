@@ -1,1 +1,202 @@
+// ============================================================
+// Buddha's Path of Equality — Database Schema (Prisma)
+//
+// Set to "postgresql" for real cloud deployment (Render/Neon/
+// Supabase all work) — DATABASE_URL must be a postgresql:// URL.
+// For local-only testing without any cloud database, you can
+// switch provider back to "sqlite" and use DATABASE_URL="file:./dev.db"
+// instead — see ../README.md.
+// ============================================================
 
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // set for real cloud deployment (Render/Neon/Supabase)
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum AccountStatus {
+  ACTIVE
+  DISABLED
+}
+
+model User {
+  id                String    @id @default(cuid())
+  fullName          String
+  email             String    @unique
+  mobile            String?   @unique
+  passwordHash      String
+  role              Role      @default(USER)
+  status            AccountStatus @default(ACTIVE)
+
+  emailVerified     Boolean   @default(false)
+  mobileVerified    Boolean   @default(false)
+
+  registrationId    String    @unique // e.g. BPE-482913
+  registeredAt      DateTime  @default(now())
+
+  resetTokenHash    String?
+  resetTokenExpires DateTime?
+
+  otps              Otp[]
+  sessions          Session[]
+  documents         Document[]
+  savedItems        SavedItem[]
+  notifications     NotificationRead[]
+
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@index([email])
+  @@index([mobile])
+}
+
+// One row per OTP challenge (email or sms), never stores the raw
+// code — only a salted hash of it, checked at verify time.
+model Otp {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  channel     String   // "email" | "sms"
+  codeHash    String
+  expiresAt   DateTime
+  attempts    Int      @default(0)   // failed verify attempts, capped
+  maxAttempts Int      @default(5)
+  lastSentAt  DateTime @default(now()) // for resend cooldown
+  consumed    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  @@index([userId, channel])
+}
+
+// Server-side session record backing the httpOnly JWT cookie —
+// lets us revoke a session (logout / "logout everywhere") without
+// waiting for the JWT to expire on its own.
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String   @unique
+  userAgent String?
+  ip        String?
+  expiresAt DateTime
+  revoked   Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Document {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type       String   // "registration_slip"
+  filename   String
+  filePath   String   // path under storage/documents
+  createdAt  DateTime @default(now())
+}
+
+model SavedItem {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  contentType String   // "article" | "wisdom" | "inspiration"
+  contentId   String
+  createdAt   DateTime @default(now())
+
+  @@unique([userId, contentType, contentId])
+}
+
+// ---------------- CMS content (admin-managed) ----------------
+
+model Article {
+  id          String   @id @default(cuid())
+  title       String
+  category    String
+  excerpt     String
+  body        String   // markdown or plain text
+  coverImage  String?
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model WisdomItem {
+  id          String   @id @default(cuid())
+  category    String   // e.g. "Buddha की शिक्षाएँ"
+  title       String
+  body        String
+  coverImage  String?
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model GalleryImage {
+  id          String   @id @default(cuid())
+  caption     String
+  category    String   // nature | buddha | knowledge | inspiration | events
+  imagePath   String
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  date        DateTime
+  time        String?
+  location    String?
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model Announcement {
+  id          String   @id @default(cuid())
+  message     String
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+}
+
+model DailyInspiration {
+  id          String   @id @default(cuid())
+  thought     String
+  activeDate  DateTime @default(now())
+  createdAt   DateTime @default(now())
+}
+
+model Notification {
+  id          String   @id @default(cuid())
+  title       String
+  body        String
+  createdAt   DateTime @default(now())
+  reads       NotificationRead[]
+}
+
+model NotificationRead {
+  id             String       @id @default(cuid())
+  userId         String
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  notificationId String
+  notification   Notification @relation(fields: [notificationId], references: [id], onDelete: Cascade)
+  readAt         DateTime     @default(now())
+
+  @@unique([userId, notificationId])
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  source    String   // "contact" | "feedback"
+  handled   Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
